@@ -15,7 +15,7 @@ jobs:
         git config user.name "ci-bot"
         git fetch origin gh-pages
         git checkout gh-pages
-        git merge master --allow-unrelated-histories
+        git merge master
     - name: Set up JDK 8
       uses: actions/setup-java@v2
       with:
