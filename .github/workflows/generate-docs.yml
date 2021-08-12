@@ -8,7 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@gh-pages
+    - uses: actions/checkout@v2
+    - run: |
+        git config user.email "ci-bot@treasure-data.com"
+        git config user.name "ci-bot"
+        git checkout gh-pages
     - name: Merge master -> gh-pages
       uses: devmasx/merge-branch@v1.3.1
       with:
@@ -27,8 +31,6 @@ jobs:
       run: ./gradlew javadocSite
     - name: Deploy Javadoc site
       run: |
-        git config user.email "ci-bot@treasure-data.com"
-        git config user.name "ci-bot"
         git add .
         git commit -m "[ci-bot] Auto-generated Javadoc Site "
         git push
