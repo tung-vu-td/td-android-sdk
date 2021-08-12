@@ -13,6 +13,7 @@ jobs:
       run: |
         git config user.email "ci-bot@treasure-data.com"
         git config user.name "ci-bot"
+        git fetch gh-pages
         git checkout gh-pages
         git merge master
     - name: Set up JDK 8
